@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChordDataAPI", "ChordDataAPI\ChordDataAPI.csproj", "{26E90B24-F856-4A1F-B245-CE5BF9662C7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChordDataAPI.Test", "ChordDataAPI.Test\ChordDataAPI.Test.csproj", "{36D64F55-872C-4B10-A7C5-1B1DA8CA8402}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26E90B24-F856-4A1F-B245-CE5BF9662C7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26E90B24-F856-4A1F-B245-CE5BF9662C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26E90B24-F856-4A1F-B245-CE5BF9662C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26E90B24-F856-4A1F-B245-CE5BF9662C7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36D64F55-872C-4B10-A7C5-1B1DA8CA8402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36D64F55-872C-4B10-A7C5-1B1DA8CA8402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36D64F55-872C-4B10-A7C5-1B1DA8CA8402}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36D64F55-872C-4B10-A7C5-1B1DA8CA8402}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A7E5180B-C7A3-40DF-9579-EC3F5B58FD60}
+	EndGlobalSection
+EndGlobal
