@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: "openfeaturekubernetescluster-5bd6"
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: "openfeaturekubernetescluster-5bd6"
+    spec:
+      containers:
+        - name: "openfeaturekubernetescluster-5bd6"
+          image: "openfeaturecontainerregistry.azurecr.io/openfeaturekubernetescluster"
+          ports:
+          - containerPort: 80
