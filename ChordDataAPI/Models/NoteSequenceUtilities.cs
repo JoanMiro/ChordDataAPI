@@ -8,7 +8,7 @@
     {
         public static IEnumerable<string> GetNotes(IChordData chordData, string root, NoteSequence results)
         {
-            var rootNote = chordData.NoteNames.First(name => name.Contains(root.CorrectCase()));
+            var rootNote = chordData.NoteNames.First(name => name.FindRoot(root.CorrectCase()));
 
             var rootNoteIndex = chordData.NoteNames.IndexOf(rootNote);
             var notes = new List<string>();
@@ -32,6 +32,36 @@
             Array.Copy(searchResults, results, searchResults.Length);
 
             return results;
+        }
+
+        public static IEnumerable<T> ExactDescription<T>(List<T> noteSequences, string searchTerm) where T : NoteSequence
+        {
+             searchTerm = searchTerm.Trim();
+
+             var searchResults = noteSequences
+                                 .Where(noteSequence => noteSequence.Description.Equals(searchTerm, StringComparison.InvariantCultureIgnoreCase))
+                                 .ToArray();
+
+            var results = new T[searchResults.Length];
+            Array.Copy(searchResults, results, searchResults.Length);
+
+            return results;
+        }
+
+        public static bool FindRoot(this string noteName, string searchTerm)
+        {
+            searchTerm = searchTerm.Trim();
+            if (searchTerm.Length == 1)
+            {
+                return noteName == searchTerm;
+            }
+            
+            if (searchTerm.Length==2)
+            {
+                return noteName.Contains(searchTerm);
+            }
+
+            return false;
         }
 
         private static string CorrectCase(this string noteName)

@@ -18,7 +18,7 @@
             this.chordData = new ChordData();
         }
 
-        [TestMethod]
+       [TestMethod, TestCategory("NoteSequenceUtilities")]
         public void WhenGetNotesIsCalledForCMajorTriad_ThenCEGNoteNamesIsReturned()
         {
             // Arrange
@@ -41,7 +41,7 @@
             }
         }
 
-        [TestMethod]
+       [TestMethod, TestCategory("NoteSequenceUtilities")]
         public void WhenGetNotesIsCalledForBbASharpMajorTriad_ThenBbDFNoteNamesIsReturned()
         {
             // Arrange
@@ -64,7 +64,7 @@
             }
         }
 
-        [TestMethod]
+       [TestMethod, TestCategory("NoteSequenceUtilities")]
         public void WhenGetNotesIsCalledForBbASharpMinorTriad_ThenBbDbFNoteNamesIsReturned()
         {
             // Arrange
@@ -87,7 +87,7 @@
             }
         }
 
-        [TestMethod]
+       [TestMethod, TestCategory("NoteSequenceUtilities")]
         public void WhenGetNotesIsCalledForBbASharpMajorSixthTetrad_ThenBbDbFNoteNamesIsReturned()
         {
             // Arrange
@@ -110,7 +110,7 @@
             }
         }
 
-        [TestMethod]
+       [TestMethod, TestCategory("NoteSequenceUtilities")]
         public void WhenGetNotesIsCalledForBbASharpMinorSixthTetrad_ThenBbDbFNoteNamesIsReturned()
         {
             // Arrange
@@ -133,7 +133,7 @@
             }
         }
 
-        [TestMethod]
+       [TestMethod, TestCategory("NoteSequenceUtilities")]
         public void WhenSearchDescriptionIsCalledForChordsWithSingleTerm_ThenAllMatchingChordsAreReturned()
         {
             // Arrange
@@ -149,7 +149,7 @@
             Assert.IsTrue(resultsArray.All(result => result.Description.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase)));
         }
 
-        [TestMethod]
+       [TestMethod, TestCategory("NoteSequenceUtilities")]
         public void WhenSearchDescriptionIsCalledForChordsWithMultipleTerms_ThenAllMatchingChordsAreReturned()
         {
             // Arrange

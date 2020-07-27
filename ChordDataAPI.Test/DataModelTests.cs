@@ -15,7 +15,7 @@ namespace ChordDataAPI.Test
             this.chordData = new ChordData();
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Models")]
         public void WhenChordDataIsConstructed_ThenSchemaDataIsLoaded()
         {
             // Arrange
@@ -30,7 +30,7 @@ namespace ChordDataAPI.Test
             Assert.AreEqual(12, this.chordData.NoteNames.Count);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Models")]
         public void WhenChordInstanceIsCreated_ThenNotesCountIsCorrect()
         {
             // Arrange
@@ -44,7 +44,7 @@ namespace ChordDataAPI.Test
             Assert.AreEqual(sourceChord.Notes.Count, chordInstance.Notes.Count);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Models")]
         public void WhenChordInstanceIsCreated_ThenNoteNamesCountIsCorrect()
         {
             // Arrange
@@ -58,7 +58,7 @@ namespace ChordDataAPI.Test
             Assert.AreEqual(sourceChord.Notes.Count, chordInstance.NoteNames.Count);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Models")]
         public void WhenChordInstanceIsCreated_ThenRootNameIsCorrect()
         {
             // Arrange
@@ -72,7 +72,7 @@ namespace ChordDataAPI.Test
             Assert.AreEqual("Bb/A#", chordInstance.RootName);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Models")]
         public void WhenChordInstanceIsCreated_ThenDisplayNameIsCorrect()
         {
             // Arrange
@@ -86,7 +86,7 @@ namespace ChordDataAPI.Test
             Assert.AreEqual("Bb/A# Major", chordInstance.DisplayName);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Models")]
         public void WhenScaleInstanceIsCreated_ThenNotesCountIsCorrect()
         {
             // Arrange
@@ -100,7 +100,7 @@ namespace ChordDataAPI.Test
             Assert.AreEqual(sourceScale.Notes.Count, scaleInstance.Notes.Count);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Models")]
         public void WhenScaleInstanceIsCreated_ThenNoteNamesCountIsCorrect()
         {
             // Arrange
@@ -114,7 +114,7 @@ namespace ChordDataAPI.Test
             Assert.AreEqual(sourceScale.Notes.Count, scaleInstance.NoteNames.Count);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Models")]
         public void WhenScaleInstanceIsCreated_ThenRootNameIsCorrect()
         {
             // Arrange
@@ -128,7 +128,7 @@ namespace ChordDataAPI.Test
             Assert.AreEqual("Bb/A#", scaleInstance.RootName);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Models")]
         public void WhenScaleInstanceIsCreated_ThenDisplayNameIsCorrect()
         {
             // Arrange

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ChordDataAPI</name>
+    </assembly>
+    <members>
+        <member name="M:ChordDataAPI.Controllers.ChordDataController.ChordData">
+            <summary>
+            Retrieves all chord and scale data
+            </summary>
+            <returns>JSON structure</returns>
+        </member>
+        <member name="M:ChordDataAPI.Controllers.ChordDataController.Chords">
+            <summary>
+            Retrieves all chord data
+            </summary>
+            <returns>List of chords</returns>
+        </member>
+        <member name="M:ChordDataAPI.Controllers.ChordDataController.Chords(System.String)">
+            <summary>
+            Retrieves all chord data matching the  search term(s)
+            </summary>
+            <param name="searchTerm">Text to search for in chord descriptions e.g. maj, sus etc.</param>
+            <returns>List of chords</returns>
+        </member>
+        <member name="M:ChordDataAPI.Controllers.ChordDataController.ChordNotes(System.String)">
+            <summary>
+            Retrieves all chords (with note values) for the specified root
+            </summary>
+            <param name="root">Root note value for chord e.g. C, f#, Ab etc.</param>
+            <returns>List of chords</returns>
+        </member>
+        <member name="M:ChordDataAPI.Controllers.ChordDataController.ChordNotes(System.String,System.String)">
+            <summary>
+            Retrieves all chords (with note values) that matching the search term(s) for the specified root
+            </summary>
+            <param name="root">Root note value for chord e.g. C, f#, Ab etc.</param>
+            <param name="searchTerm">Text to search for in chord descriptions e.g. maj, sus etc.</param>
+            <returns>List of chords</returns>
+        </member>
+        <member name="M:ChordDataAPI.Controllers.ChordDataController.Scales">
+            <summary>
+            Retrieves all scale data
+            </summary>
+            <returns>List of scales</returns>
+        </member>
+        <member name="M:ChordDataAPI.Controllers.ChordDataController.Scales(System.String)">
+            <summary>
+            Retrieves all chord data matching the  search term(s)
+            </summary>
+            <param name="searchTerm">Text to search for in scale descriptions e.g. mixolydian, phrygian etc.</param>
+            <returns>List of chords</returns>
+        </member>
+        <member name="M:ChordDataAPI.Controllers.ChordDataController.ScaleNotes(System.String)">
+            <summary>
+            Retrieves all scales (with note values) for the specified root
+            </summary>
+            <param name="root">Root note value for scale e.g. C, f#, Ab etc.</param>
+            <returns>List of scales</returns>
+        </member>
+        <member name="M:ChordDataAPI.Controllers.ChordDataController.ScaleNotes(System.String,System.String)">
+            <summary>
+            Retrieves all scales (with note values) that matching the search term(s) for the specified root
+            </summary>
+            <param name="root">Root note value for scale e.g. C, f#, Ab etc.</param>
+            <param name="searchTerm">Text to search for in scale descriptions e.g. mixolydian, phrygian etc.</param>
+            <returns>List of scales</returns>
+        </member>
+    </members>
+</doc>
