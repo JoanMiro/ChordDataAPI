@@ -32,4 +32,4 @@ jobs:
         app-name: 'chorddata'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_262ba6e0d79e4b52807e9f8f8ee14652 }}
-        package: ${{env.DOTNET_ROOT}}/myapp 
+        package: ${{env.DOTNET_ROOT}}/myapp
