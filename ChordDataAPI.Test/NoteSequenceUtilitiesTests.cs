@@ -1,11 +1,11 @@
 ﻿namespace ChordDataAPI.Test
 {
-    using System;
-    using System.Linq;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     using Models;
+
+    using System;
+    using System.Linq;
 
     [TestClass]
     public class NoteSequenceUtilitiesTests
@@ -18,7 +18,7 @@
             this.chordData = new ChordData();
         }
 
-       [TestMethod, TestCategory("NoteSequenceUtilities")]
+        [TestMethod, TestCategory("NoteSequenceUtilities")]
         public void WhenGetNotesIsCalledForCMajorTriad_ThenCEGNoteNamesIsReturned()
         {
             // Arrange
@@ -41,7 +41,7 @@
             }
         }
 
-       [TestMethod, TestCategory("NoteSequenceUtilities")]
+        [TestMethod, TestCategory("NoteSequenceUtilities")]
         public void WhenGetNotesIsCalledForBbASharpMajorTriad_ThenBbDFNoteNamesIsReturned()
         {
             // Arrange
@@ -64,7 +64,7 @@
             }
         }
 
-       [TestMethod, TestCategory("NoteSequenceUtilities")]
+        [TestMethod, TestCategory("NoteSequenceUtilities")]
         public void WhenGetNotesIsCalledForBbASharpMinorTriad_ThenBbDbFNoteNamesIsReturned()
         {
             // Arrange
@@ -87,7 +87,7 @@
             }
         }
 
-       [TestMethod, TestCategory("NoteSequenceUtilities")]
+        [TestMethod, TestCategory("NoteSequenceUtilities")]
         public void WhenGetNotesIsCalledForBbASharpMajorSixthTetrad_ThenBbDbFNoteNamesIsReturned()
         {
             // Arrange
@@ -110,7 +110,7 @@
             }
         }
 
-       [TestMethod, TestCategory("NoteSequenceUtilities")]
+        [TestMethod, TestCategory("NoteSequenceUtilities")]
         public void WhenGetNotesIsCalledForBbASharpMinorSixthTetrad_ThenBbDbFNoteNamesIsReturned()
         {
             // Arrange
@@ -133,7 +133,7 @@
             }
         }
 
-       [TestMethod, TestCategory("NoteSequenceUtilities")]
+        [TestMethod, TestCategory("NoteSequenceUtilities")]
         public void WhenSearchDescriptionIsCalledForChordsWithSingleTerm_ThenAllMatchingChordsAreReturned()
         {
             // Arrange
@@ -149,7 +149,7 @@
             Assert.IsTrue(resultsArray.All(result => result.Description.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase)));
         }
 
-       [TestMethod, TestCategory("NoteSequenceUtilities")]
+        [TestMethod, TestCategory("NoteSequenceUtilities")]
         public void WhenSearchDescriptionIsCalledForChordsWithMultipleTerms_ThenAllMatchingChordsAreReturned()
         {
             // Arrange
@@ -167,6 +167,127 @@
             {
                 Assert.IsTrue(resultsArray.All(result => result.Description.Contains(term, StringComparison.InvariantCultureIgnoreCase)));
             }
+        }
+
+        [TestMethod, TestCategory("NoteSequenceUtilities")]
+        public void WhenSearchDescriptionIsCalledForChordsWithVariantSpelling_ThenAllMatchingChordsAreReturned()
+        {
+            // Arrange
+            var searchTerm = "eenth";
+            var expectedDescriptions = new[]
+            {
+                "13th",
+                "Minor 13th",
+                "Major 13th",
+                "Minor + Major 13th",
+                "7th+13th",
+                "Minor 7th+13th",
+                "Major 7th+13th",
+                "Minor + Major 7th+13th",
+                "9th Flattened 13th"
+            };
+
+            // Act
+            var results = NoteSequenceUtilities.SearchDescriptions(this.chordData.Chords, searchTerm);
+
+            // Assert
+            Assert.IsNotNull(results);
+            var resultsArray = results as Chord[] ?? results.ToArray();
+            Assert.AreEqual(9, resultsArray.Length);
+            Assert.AreEqual(0, expectedDescriptions.Except(resultsArray.Select(r => r.Description)).Count());
+        }
+
+        [TestMethod, TestCategory("NoteSequenceUtilities")]
+        public void WhenSearchDescriptionIsCalledForChordsWithVariantSpellingMultipleMatchingHits_ThenAllMatchingChordsAreReturned()
+        {
+            // Arrange
+            var searchTerm = "even";
+            var expectedDescriptions = new[]
+            {
+                "7th",
+                "Major 7th",
+                "Minor 7th",
+                "Diminished 7th",
+                "7th Flattened 5th",
+                "7th Sharpened 5th",
+                "7th Flattened 9th",
+                "7th Sharpened 9th",
+                "Major 7th+9th",
+                "11th",
+                "Augmented 11th",
+                "Minor + Major 7th",
+                "Minor 11th",
+                "Major 11th",
+                "Minor + Major 11th",
+                "7th+11th",
+                "Minor 7th+11th",
+                "Major 7th+11th",
+                "Minor + Major 7th+11th",
+                "7th+13th",
+                "Minor 7th+13th",
+                "Major 7th+13th",
+                "Minor + Major 7th+13th",
+                "7th Sharpened 5th Flattened 9th",
+                "Minor 7th Flattened 5th",
+                "Minor 7th Sharpened 5th",
+                "Minor 7th Flattened 9th",
+                "7th Suspended 4th",
+                "Major 7th Suspended 4th"
+            };
+
+            // Act
+            var results = NoteSequenceUtilities.SearchDescriptions(this.chordData.Chords, searchTerm);
+
+            // Assert
+            Assert.IsNotNull(results);
+            var resultsArray = results as Chord[] ?? results.ToArray();
+            Assert.AreEqual(29, resultsArray.Length);
+            Assert.AreEqual(0, expectedDescriptions.Except(resultsArray.Select(r => r.Description)).Count());
+        }
+
+        
+        [TestMethod, TestCategory("NoteSequenceUtilities")]
+        public void WhenSearchDescriptionIsCalledForChordsWithMultipleTermsWithVariantSpelling_ThenAllMatchingChordsAreReturned()
+        {
+            // Arrange
+            var searchTerm = "eenth maj";
+            var expectedDescriptions = new[]
+            {
+                "Major 13th",
+                "Minor + Major 13th",
+                "Major 7th+13th",
+                "Minor + Major 7th+13th"
+            };
+
+            // Act
+            var results = NoteSequenceUtilities.SearchDescriptions(this.chordData.Chords, searchTerm);
+
+            // Assert
+            Assert.IsNotNull(results);
+            var resultsArray = results as Chord[] ?? results.ToArray();
+            Assert.AreEqual(4, resultsArray.Length);
+            Assert.AreEqual(0, expectedDescriptions.Except(resultsArray.Select(r => r.Description)).Count());
+        }
+
+        [TestMethod, TestCategory("NoteSequenceUtilities")]
+        public void WhenSearchDescriptionIsCalledForChordsWithMultipleTermsAndVariantSpelling_ThenAllMatchingChordsAreReturned()
+        {
+            // Arrange
+            var searchTerm = "eenth maj min";
+            var expectedDescriptions = new[]
+            {
+                "Minor + Major 13th",
+                "Minor + Major 7th+13th"
+            };
+
+            // Act
+            var results = NoteSequenceUtilities.SearchDescriptions(this.chordData.Chords, searchTerm);
+
+            // Assert
+            Assert.IsNotNull(results);
+            var resultsArray = results as Chord[] ?? results.ToArray();
+            Assert.AreEqual(2, resultsArray.Length);
+            Assert.AreEqual(0, expectedDescriptions.Except(resultsArray.Select(r => r.Description)).Count());
         }
     }
 }
