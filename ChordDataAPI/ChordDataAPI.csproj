@@ -12,8 +12,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="azds.yaml" />
     <None Remove="Data\ChordData.xml" />
     <None Remove="Data\ChordData.xsd" />
+    <None Remove="Dockerfile" />
+    <None Remove="Dockerfile.develop" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +30,22 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Kubernetes.Tools.Targets" Version="1.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="..\.dockerignore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="..\.dockerignore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="..\.dockerignore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="..\.dockerignore" />
   </ItemGroup>
 
 
