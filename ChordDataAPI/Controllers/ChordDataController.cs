@@ -10,7 +10,7 @@
     using Models;
 
     [ApiController]
-    [Route("v1/api")]
+    [Route("[controller]")]
     public class ChordDataController : ControllerBase
     {
         private readonly IChordData chordData;
@@ -27,7 +27,6 @@
         /// </summary>
         /// <returns>JSON structure</returns>
         [HttpGet]
-        [Route("chordData")]
         public ChordData ChordData()
         {
             return (ChordData)this.chordData;
