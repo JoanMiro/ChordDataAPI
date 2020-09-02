@@ -20,6 +20,7 @@
         {
             this.chordData = chordData;
             this.logger = logger;
+            logger.LogInformation("ChordData constructor");
         }
 
         /// <summary>
@@ -29,6 +30,7 @@
         [HttpGet]
         public ChordData ChordData()
         {
+            this.logger.LogInformation("ChordData all data");
             return (ChordData)this.chordData;
         }
 
@@ -39,6 +41,7 @@
         [HttpGet("Chords")]
         public IEnumerable<Chord> Chords()
         {
+            this.logger.LogInformation("Chords all chords");
             return this.chordData.Chords;
         }
 
@@ -51,6 +54,7 @@
         public IEnumerable<Chord> Chords(string searchTerm)
         {
             searchTerm = searchTerm.Trim();
+            this.logger.LogInformation($"Chords with searchTerm: {searchTerm}");
             //return this.Chords().Where(chord => chord.Description.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase));
             return NoteSequenceUtilities.SearchDescriptions(this.chordData.Chords, searchTerm);
         }
@@ -63,6 +67,7 @@
         [HttpGet("ChordNotes/{root}")]
         public IEnumerable<ChordInstance> ChordNotes(string root)
         {
+            this.logger.LogInformation($"ChordNotes with root: {root}");
             return this.ChordNotes(root, "Major");
         }
 
@@ -76,6 +81,7 @@
         public IEnumerable<ChordInstance> ChordNotes(string root, string searchTerm)
         {
             searchTerm = searchTerm.Trim();
+            this.logger.LogInformation($"ChordNotes with root: {root} and searchTerm: {searchTerm}");
             var chordResults = NoteSequenceUtilities.SearchDescriptions(this.chordData.Chords, searchTerm);
             var chordArray = chordResults as Chord[] ?? chordResults.ToArray();
             var chordInstances = new List<ChordInstance>(chordArray.Length);
@@ -100,6 +106,7 @@
         [HttpGet("Scales")]
         public IEnumerable<Scale> Scales()
         {
+            this.logger.LogInformation($"Scales all scales");
             return this.chordData.Scales;
         }
 
@@ -112,6 +119,7 @@
         public IEnumerable<Scale> Scales(string searchTerm)
         {
             searchTerm = searchTerm.Trim();
+            this.logger.LogInformation($"Scales with searchTerm: {searchTerm}");
             //return this.chordData.Scales.Where(scale => scale.Description.Contains(searchTerm, StringComparison.InvariantCultureIgnoreCase));
             return NoteSequenceUtilities.SearchDescriptions(this.chordData.Scales, searchTerm);
         }
@@ -124,6 +132,7 @@
         [HttpGet("ScaleNotes/{root}")]
         public IEnumerable<ScaleInstance> ScaleNotes(string root)
         {
+            this.logger.LogInformation($"ScaleNotes with root: {root}");
             return this.ScaleNotes(root, "Major");
         }
 
@@ -138,6 +147,7 @@
         {
             searchTerm = searchTerm.Trim();
 
+            this.logger.LogInformation($"ScaleNotes with root: {root} and searchTerm: {searchTerm}");
             var scaleResults = NoteSequenceUtilities.SearchDescriptions(this.chordData.Scales, searchTerm);
             var scaleArray = scaleResults as Scale[] ?? scaleResults.ToArray();
             var scaleInstances = new List<ScaleInstance>(scaleArray.Length);
