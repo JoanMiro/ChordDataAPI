@@ -56,7 +56,7 @@ namespace ChordDataAPI
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Openfeature ChordData V1");
-                c.RoutePrefix ="./";
+                c.RoutePrefix = string.Empty;
             });
 
             if (env.IsDevelopment())
