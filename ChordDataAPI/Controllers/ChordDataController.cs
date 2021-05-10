@@ -46,7 +46,7 @@
         }
 
         /// <summary>
-        /// Retrieves all chord data matching the  search term(s)
+        /// Retrieves all chord data matching the search term(s)
         /// </summary>
         /// <param name="searchTerm">Text to search for in chord descriptions e.g. maj, sus etc.</param>
         /// <returns>List of chords</returns>
@@ -72,7 +72,7 @@
         }
 
         /// <summary>
-        /// Retrieves all chords (with note values) that matching the search term(s) for the specified root
+        /// Retrieves all chords (with note values) that match the search term(s) for the specified root
         /// </summary>
         /// <param name="root">Root note value for chord e.g. C, f#, Ab etc.</param>
         /// <param name="searchTerm">Text to search for in chord descriptions e.g. maj, sus etc.</param>
@@ -111,7 +111,7 @@
         }
 
         /// <summary>
-        /// Retrieves all chord data matching the  search term(s)
+        /// Retrieves all chord data matching the search term(s)
         /// </summary>
         /// <param name="searchTerm">Text to search for in scale descriptions e.g. mixolydian, phrygian etc.</param>
         /// <returns>List of chords</returns>
@@ -137,7 +137,7 @@
         }
 
         /// <summary>
-        /// Retrieves all scales (with note values) that matching the search term(s) for the specified root
+        /// Retrieves all scales (with note values) that match the search term(s) for the specified root
         /// </summary>
         /// <param name="root">Root note value for scale e.g. C, f#, Ab etc.</param>
         /// <param name="searchTerm">Text to search for in scale descriptions e.g. mixolydian, phrygian etc.</param>
